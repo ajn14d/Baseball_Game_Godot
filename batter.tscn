@@ -1,20 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0hifvi85hsbc"]
+[gd_scene load_steps=6 format=3 uid="uid://d0hifvi85hsbc"]
 
+[ext_resource type="Script" path="res://batter.gd" id="1_oemf0"]
 [ext_resource type="Texture2D" uid="uid://bpq42ovi8vcw" path="res://art/player_placeholder.png" id="1_st87b"]
+[ext_resource type="Texture2D" uid="uid://l142ecjqhkd6" path="res://art/bat.png" id="2_gfngu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d8pe3"]
 radius = 12.0
 height = 48.0
 
-[node name="Batter" type="RigidBody2D"]
-collision_layer = 0
-collision_mask = 0
-gravity_scale = 0.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vlhuh"]
+radius = 4.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Batter" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 17
+gravity_scale = 0.0
+continuous_cd = 2
+script = ExtResource("1_oemf0")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_st87b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CapsuleShape2D_d8pe3")
+
+[node name="BatPivot" type="Node2D" parent="."]
+rotation = 2.35619
+
+[node name="BatSprite" type="Sprite2D" parent="BatPivot"]
+position = Vector2(34.2973, 1.63516)
+rotation = 1.5708
+scale = Vector2(0.545605, 0.759291)
+texture = ExtResource("2_gfngu")
+
+[node name="BatBody" type="StaticBody2D" parent="BatPivot"]
+rotation = -2.35619
+collision_layer = 16
+
+[node name="BatCollision" type="CollisionShape2D" parent="BatPivot/BatBody"]
+position = Vector2(-31.8198, 28.9914)
+rotation = -2.35619
+shape = SubResource("CapsuleShape2D_vlhuh")
