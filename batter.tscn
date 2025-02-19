@@ -8,10 +8,10 @@
 radius = 12.0
 height = 48.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vlhuh"]
-radius = 4.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n3btr"]
+radius = 4.24264
 
-[node name="Batter" type="RigidBody2D"]
+[node name="Batter" type="RigidBody2D" groups=["Bat"]]
 collision_layer = 16
 collision_mask = 17
 gravity_scale = 0.0
@@ -35,11 +35,12 @@ rotation = 1.5708
 scale = Vector2(0.545605, 0.759291)
 texture = ExtResource("2_gfngu")
 
-[node name="BatBody" type="StaticBody2D" parent="BatPivot"]
-rotation = -2.35619
+[node name="BatArea" type="Area2D" parent="BatPivot" groups=["Bat"]]
 collision_layer = 16
 
-[node name="BatCollision" type="CollisionShape2D" parent="BatPivot/BatBody"]
-position = Vector2(-31.8198, 28.9914)
-rotation = -2.35619
-shape = SubResource("CapsuleShape2D_vlhuh")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatPivot/BatArea" groups=["Bat"]]
+position = Vector2(43.1335, 2.12132)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n3btr")
+
+[connection signal="area_entered" from="BatPivot/BatArea" to="." method="_on_bat_area_area_entered"]

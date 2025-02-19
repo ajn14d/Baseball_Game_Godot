@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+@onready var batter = get_node("/root/GameScene/Batter")
+
 var pitch_select = 1
 var ball_speed = 0  # Adjust the speed of the fastball
 
@@ -19,3 +21,19 @@ func pitch_fastball():
 	linear_velocity = Vector2(0, ball_speed)  # Apply a straight-down velocity
 	# Optionally, you can use `apply_impulse()` for more realistic physics
 	# apply_impulse(Vector2.ZERO, Vector2(0, fastball_speed))  # Impulse to go straight down
+
+func _on_ball_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Bat"):
+		# Get the bat's angle in degrees
+		var bat_angle = batter.bat_pivot.rotation_degrees + -45
+		
+		# Convert the angle to radians (since Godot's trig functions use radians)
+		var angle_in_radians = deg_to_rad(bat_angle)
+		
+		# Create a direction vector based on the angle
+		var direction = Vector2(cos(angle_in_radians), sin(angle_in_radians))
+		
+		# Scale the direction by the desired speed (500 in this case)
+		linear_velocity = direction * 300
+		
+		print("Ball hit, Bat angle: ", bat_angle)
