@@ -21,13 +21,13 @@ func swing_bat():
 	tween.tween_property(bat_pivot, "rotation_degrees", -90, swing_speed)  # Counterclockwise swing (6 to 12)
 	
 	# Add wrist movement by slightly rotating the BatSprite and BatArea
-	tween.tween_property(bat_sprite, "rotation_degrees", 75, swing_speed).set_delay(0.025)
-	tween.tween_property(bat_collision, "rotation_degrees", 75, swing_speed).set_delay(0.025) 
+	tween.tween_property(bat_sprite, "rotation_degrees", 75, swing_speed).set_delay(0.02)
+	tween.tween_property(bat_collision, "rotation_degrees", 75, swing_speed).set_delay(0.02) 
 
 	# Reset rotation after delay
-	tween.tween_property(bat_pivot, "rotation_degrees", 135, swing_speed).set_delay(0.5)  # Reset bat pivot
-	tween.tween_property(bat_sprite, "rotation_degrees", 135, swing_speed).set_delay(0.5)  # Reset wrist movement
-	tween.tween_property(bat_collision, "rotation_degrees", 135, swing_speed).set_delay(0.5)  # Reset collision shape
+	tween.tween_property(bat_pivot, "rotation_degrees", 150, swing_speed).set_delay(0.5)  # Reset bat pivot
+	tween.tween_property(bat_sprite, "rotation_degrees", 150, swing_speed).set_delay(0.5)  # Reset wrist movement
+	tween.tween_property(bat_collision, "rotation_degrees", 150, swing_speed).set_delay(0.5)  # Reset collision shape
 
 	tween.finished.connect(func(): swinging = false)  # Reset swing flag
 

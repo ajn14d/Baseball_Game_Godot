@@ -28,11 +28,12 @@ visible = false
 shape = SubResource("CapsuleShape2D_d8pe3")
 
 [node name="BatPivot" type="Node2D" parent="."]
+position = Vector2(0, -15)
 rotation = 2.61799
 
 [node name="BatSprite" type="Sprite2D" parent="BatPivot"]
 position = Vector2(38.8909, 3.53553)
-rotation = 2.35619
+rotation = 2.61799
 scale = Vector2(0.545605, 0.915317)
 texture = ExtResource("2_gfngu")
 
@@ -41,7 +42,7 @@ collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatPivot/BatArea" groups=["Bat"]]
 position = Vector2(48.0833, 7.07107)
-rotation = 2.35619
+rotation = 2.61799
 shape = SubResource("CapsuleShape2D_n3btr")
 
 [connection signal="area_entered" from="BatPivot/BatArea" to="." method="_on_bat_area_area_entered"]
