@@ -6,6 +6,7 @@ var ball_hit = false
 
 var pitch_select = 1
 var ball_speed = 0  # Adjust the speed of the fastball
+var hit_speed = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,9 +19,10 @@ func _process(delta: float) -> void:
 
 # Function to throw a fastball straight down
 func pitch_fastball():
-	ball_speed = 400
+	ball_speed = randi_range(300, 600)
 	# Apply a downward impulse to the ball
-	linear_velocity = Vector2(0, ball_speed)  # Apply a straight-down velocity
+	linear_velocity = Vector2(randi_range(-30, 30), ball_speed)  # Apply a random Y velocity
+
 	# Optionally, you can use `apply_impulse()` for more realistic physics
 	# apply_impulse(Vector2.ZERO, Vector2(0, fastball_speed))  # Impulse to go straight down
 
@@ -35,8 +37,10 @@ func _on_ball_area_area_entered(area: Area2D) -> void:
 		# Create a direction vector based on the angle
 		var direction = Vector2(cos(angle_in_radians), sin(angle_in_radians))
 		
+		var hit_speed = ball_speed * 1.1
+		
 		# Scale the direction by the desired speed (500 in this case)
-		linear_velocity = direction * 500
+		linear_velocity = direction * hit_speed
 		
 		ball_hit = true
 		

@@ -14,7 +14,7 @@ script = ExtResource("1_7e81d")
 position = Vector2(0, 23)
 
 [node name="Batter" parent="." instance=ExtResource("3_xjn15")]
-position = Vector2(-39, 284)
+position = Vector2(-35, 276)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 10)

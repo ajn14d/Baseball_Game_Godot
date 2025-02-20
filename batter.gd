@@ -6,7 +6,7 @@ extends RigidBody2D
 
 var bat_angle = 0
 var swinging := false
-var swing_speed := 0.2  # The speed of the swing (lower value = faster swing)
+var swing_speed := 0.25  # The speed of the swing (lower value = faster swing)
 
 func _input(event):
 	if event.is_action_pressed("swing") and not swinging:
@@ -21,8 +21,8 @@ func swing_bat():
 	tween.tween_property(bat_pivot, "rotation_degrees", -90, swing_speed)  # Counterclockwise swing (6 to 12)
 	
 	# Add wrist movement by slightly rotating the BatSprite and BatArea
-	tween.tween_property(bat_sprite, "rotation_degrees", 75, swing_speed).set_delay(0.02)
-	tween.tween_property(bat_collision, "rotation_degrees", 75, swing_speed).set_delay(0.02) 
+	tween.tween_property(bat_sprite, "rotation_degrees", 75, swing_speed).set_delay(0.01)
+	tween.tween_property(bat_collision, "rotation_degrees", 75, swing_speed).set_delay(0.01) 
 
 	# Reset rotation after delay
 	tween.tween_property(bat_pivot, "rotation_degrees", 150, swing_speed).set_delay(0.5)  # Reset bat pivot
