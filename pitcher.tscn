@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bpq42ovi8vcw" path="res://art/player_placeholder.png" id="1_v113i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nwlot"]
-radius = 14.0
-height = 48.0
+radius = 29.0
+height = 92.0
 
 [node name="Pitcher" type="RigidBody2D"]
 collision_layer = 0
@@ -12,7 +12,6 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_v113i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

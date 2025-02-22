@@ -11,10 +11,11 @@ script = ExtResource("1_7e81d")
 [node name="Field" parent="." instance=ExtResource("1_el01i")]
 
 [node name="Pitcher" parent="." instance=ExtResource("2_sax3o")]
-position = Vector2(0, 23)
+position = Vector2(0, -174)
 
 [node name="Batter" parent="." instance=ExtResource("3_xjn15")]
-position = Vector2(-35, 276)
+position = Vector2(-68, 523)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(0, -200)
+zoom = Vector2(0.4, 0.4)

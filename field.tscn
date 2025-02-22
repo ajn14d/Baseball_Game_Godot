@@ -1,8 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://dua82uue0yggo"]
 
-[ext_resource type="Texture2D" uid="uid://crng33g8xiyyj" path="res://art/baseball-diamond.png" id="1_kwwed"]
+[ext_resource type="Texture2D" uid="uid://bh8geqoidvcgf" path="res://art/baseball_diamond.jpeg" id="1_5a2at"]
 
 [node name="Field" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_kwwed")
+position = Vector2(12, -1064.13)
+scale = Vector2(1.01758, 0.975932)
+texture = ExtResource("1_5a2at")

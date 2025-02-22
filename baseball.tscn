@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://baseball.gd" id="1_xlwtj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xowas"]
-radius = 5.0
+radius = 8.06226
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_luwl7"]
-radius = 5.0
+radius = 8.0
 
 [node name="Baseball" type="RigidBody2D"]
 collision_mask = 16
@@ -17,7 +17,7 @@ continuous_cd = 2
 script = ExtResource("1_xlwtj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.35, 0.35)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_m54ku")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -28,6 +28,7 @@ shape = SubResource("CircleShape2D_xowas")
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallArea"]
+visible = false
 shape = SubResource("CircleShape2D_luwl7")
 
 [connection signal="area_entered" from="BallArea" to="." method="_on_ball_area_area_entered"]

@@ -5,12 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://l142ecjqhkd6" path="res://art/bat.png" id="2_gfngu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d8pe3"]
-radius = 12.0
-height = 48.0
+radius = 23.0
+height = 70.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n3btr"]
 radius = 4.24264
-height = 41.0122
+height = 94.282
 
 [node name="Batter" type="RigidBody2D" groups=["Bat"]]
 collision_layer = 16
@@ -20,29 +20,28 @@ continuous_cd = 2
 script = ExtResource("1_oemf0")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_st87b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_d8pe3")
 
 [node name="BatPivot" type="Node2D" parent="."]
-position = Vector2(0, -15)
 rotation = 2.61799
 
 [node name="BatSprite" type="Sprite2D" parent="BatPivot"]
-position = Vector2(38.8909, 3.53553)
+position = Vector2(51.3049, 27.0704)
 rotation = 2.61799
-scale = Vector2(0.545605, 0.915317)
+scale = Vector2(0.85, 1.425)
 texture = ExtResource("2_gfngu")
 
 [node name="BatArea" type="Area2D" parent="BatPivot" groups=["Bat"]]
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatPivot/BatArea" groups=["Bat"]]
-position = Vector2(48.0833, 7.07107)
+position = Vector2(56.9256, 29.4019)
 rotation = 2.61799
+scale = Vector2(0.85, 0.85)
 shape = SubResource("CapsuleShape2D_n3btr")
 
 [connection signal="area_entered" from="BatPivot/BatArea" to="." method="_on_bat_area_area_entered"]
